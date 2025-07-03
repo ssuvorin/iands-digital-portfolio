@@ -226,7 +226,7 @@ export default function ProjectPage({ params }: PageProps) {
               Ready to Start Your <span className="gradient-text">Project</span>?
             </h2>
             <p className="text-white/70 mb-8 max-w-2xl mx-auto">
-              Let's create something amazing together. Get in touch to discuss 
+              Let&apos;s create something amazing together. Get in touch to discuss 
               how we can help transform your brand and drive real results.
             </p>
             

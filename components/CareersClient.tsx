@@ -108,7 +108,7 @@ export default function CareersClient() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             Join a team of passionate creators, innovators, and problem-solvers who are 
-            redefining what's possible in digital experiences.
+            redefining what&apos;s possible in digital experiences.
           </motion.p>
         </div>
       </section>
@@ -250,8 +250,8 @@ export default function CareersClient() {
               Don't See Your <span className="gradient-text">Perfect Role</span>?
             </h2>
             <p className="text-white/70 mb-8 max-w-2xl mx-auto">
-              We're always looking for talented individuals who share our passion for 
-              innovation and excellence. Send us your portfolio and let's talk!
+              We&apos;re always looking for talented individuals who share our passion for 
+              innovation and excellence. Send us your portfolio and let&apos;s talk!
             </p>
             <motion.div
               whileHover={{ scale: 1.05 }}

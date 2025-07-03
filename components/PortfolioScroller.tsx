@@ -235,7 +235,7 @@ export default function PortfolioScroller() {
               zIndex: 10,
             }}
           >
-            "{projects[currentProject].quote}"
+            &quot;{projects[currentProject].quote}&quot;
           </blockquote>
         </motion.div>
       )}
