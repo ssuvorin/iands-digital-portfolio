@@ -247,7 +247,7 @@ export default function CareersClient() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold mb-6">
-              Don't See Your <span className="gradient-text">Perfect Role</span>?
+              Don&apos;t See Your <span className="gradient-text">Perfect Role</span>?
             </h2>
             <p className="text-white/70 mb-8 max-w-2xl mx-auto">
               We&apos;re always looking for talented individuals who share our passion for 
