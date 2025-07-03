@@ -311,8 +311,7 @@ export default function ServicesClient() {
               Ready to <span className="gradient-text">Transform</span> Your Business?
             </h2>
             <p className="text-white/70 mb-8 max-w-2xl mx-auto">
-              Let's discuss your project and create a customized solution that 
-              drives real results for your brand.
+              We&apos;re passionate about helping brands grow. Let&apos;s build something extraordinary together.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.div

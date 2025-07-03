@@ -163,7 +163,7 @@ export default function ProjectPage({ params }: PageProps) {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="text-6xl text-accent/20 mb-6">"</div>
+              <div className="text-6xl text-accent/20 mb-6">&quot;</div>
               <blockquote className="text-2xl md:text-3xl font-light text-white/90 leading-relaxed mb-8">
                 {project.quote}
               </blockquote>

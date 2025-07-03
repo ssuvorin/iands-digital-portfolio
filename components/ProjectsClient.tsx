@@ -26,7 +26,7 @@ export default function ProjectsClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Discover how we've helped brands across industries achieve 
+            Discover how we&apos;ve helped brands across industries achieve 
             remarkable growth through strategic digital solutions.
           </motion.p>
         </div>
@@ -171,7 +171,7 @@ export default function ProjectsClient() {
               Ready to Join Our <span className="gradient-text">Success Stories</span>?
             </h2>
             <p className="text-white/70 mb-8 max-w-2xl mx-auto">
-              Let's discuss how we can help transform your brand and achieve 
+              Let&apos;s discuss how we can help transform your brand and achieve 
               remarkable growth like our featured clients.
             </p>
             <motion.div

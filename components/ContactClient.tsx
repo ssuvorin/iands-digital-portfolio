@@ -73,7 +73,7 @@ export default function ContactClient() {
     setIsSubmitting(false)
     
     // You would typically send this to your backend here
-    alert('Thank you for your message! We\'ll get back to you soon.')
+    alert('Thank you for your message! We&apos;ll get back to you soon.')
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -95,7 +95,7 @@ export default function ContactClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Let's Create Something <span className="gradient-text">Amazing</span>
+            Let&apos;s Create Something <span className="gradient-text">Amazing</span>
           </motion.h1>
           <motion.p
             className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed"
@@ -103,7 +103,7 @@ export default function ContactClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Ready to transform your digital presence? We're here to help bring your vision to life 
+            Ready to transform your digital presence? We&apos;re here to help bring your vision to life 
             with innovative strategies and exceptional execution.
           </motion.p>
         </div>

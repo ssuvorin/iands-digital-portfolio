@@ -84,7 +84,7 @@ export default function LegalClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Transparency and trust are fundamental to our business. Here you'll find all the legal 
+            Transparency and trust are fundamental to our business. Here you&apos;ll find all the legal 
             information you need about our services, privacy practices, and terms of engagement.
           </motion.p>
         </div>
@@ -147,7 +147,7 @@ export default function LegalClient() {
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
               If you have questions about our legal policies or need clarification on any terms, 
-              don't hesitate to reach out to our legal team.
+              don&apos;t hesitate to reach out to our legal team.
             </p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -192,7 +192,7 @@ export default function LegalClient() {
                 </p>
                 <a
                   href={`mailto:${item.contact}`}
-                  className="text-accent hover:text-accent/80 transition-colors duration-300 text-sm font-medium"
+                  className="text-accent hover:underline"
                 >
                   {item.contact}
                 </a>
@@ -201,37 +201,6 @@ export default function LegalClient() {
           </div>
         </div>
       </section>
-      {/* CTA Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl font-bold mb-6">
-              Ready to <span className="gradient-text">Work Together</span>?
-            </h2>
-            <p className="text-white/70 mb-8 max-w-2xl mx-auto">
-              Now that you understand our legal framework, let's discuss your project 
-              and create something amazing together.
-            </p>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Link
-                href="/contact"
-                className="inline-flex items-center bg-accent hover:bg-accent/90 text-black px-8 py-4 rounded-lg font-semibold transition-colors duration-300"
-              >
-                Start Your Project
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
     </main>
   )
-} 
+}

@@ -81,7 +81,7 @@ export default function Navbar() {
               href="/contact"
               className="bg-accent hover:bg-accent/90 text-black px-6 py-2 rounded-lg font-medium"
             >
-              Let's Talk
+              Let&apos;s Talk
             </MagneticButton>
           </motion.div>
 
@@ -136,7 +136,7 @@ export default function Navbar() {
                   className="bg-accent hover:bg-accent/90 text-black px-6 py-2 rounded-lg font-medium w-full text-center"
                   onClick={() => setIsOpen(false)}
                 >
-                  Let's Talk
+                  Let&apos;s Talk
                 </MagneticButton>
               </motion.div>
             </div>

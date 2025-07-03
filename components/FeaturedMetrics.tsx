@@ -122,7 +122,7 @@ export default function FeaturedMetrics() {
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Numbers don't lie. Our data-driven approach consistently delivers 
+            Numbers don&apos;t lie. Our data-driven approach consistently delivers 
             exceptional outcomes for brands across industries.
           </motion.p>
         </motion.div>

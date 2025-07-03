@@ -55,7 +55,7 @@ export default function AboutClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            We're I&S Digital - a creative agency that transforms ambitious brands through 
+            We&apos;re I&S Digital - a creative agency that transforms ambitious brands through 
             innovative digital strategies and cutting-edge design.
           </motion.p>
         </div>
@@ -90,7 +90,7 @@ export default function AboutClient() {
                   I&S Digital has grown into a trusted partner for premium brands across multiple industries.
                 </p>
                 <p>
-                  From luxury real estate to cutting-edge F&B concepts, we've helped ambitious businesses 
+                  From luxury real estate to cutting-edge F&B concepts, we&apos;ve helped ambitious businesses 
                   transform their digital presence and achieve remarkable growth through strategic thinking 
                   and flawless execution.
                 </p>
@@ -188,7 +188,7 @@ export default function AboutClient() {
               Ready to <span className="gradient-text">Transform</span> Your Brand?
             </h2>
             <p className="text-white/70 mb-8 max-w-2xl mx-auto">
-              Let's discuss how we can help your business achieve its digital potential 
+              Let&apos;s discuss how we can help your business achieve its digital potential 
               and drive meaningful growth.
             </p>
             <motion.div

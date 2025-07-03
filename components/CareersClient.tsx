@@ -126,7 +126,7 @@ export default function CareersClient() {
               Why <span className="gradient-text">I&S Digital</span>?
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
-              We're not just a workplace – we're a community of innovators building the future of digital experiences.
+              We&apos;re not just a workplace – we&apos;re a community of innovators building the future of digital experiences.
             </p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
