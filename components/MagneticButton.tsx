@@ -22,7 +22,7 @@ export default function MagneticButton({
   disabled = false,
   type = 'button',
 }: MagneticButtonProps) {
-  const ref = useRef<HTMLElement>(null)
+  const ref = useRef<HTMLDivElement>(null)
   const [position, setPosition] = useState({ x: 0, y: 0 })
 
   const handleMouse = (e: React.MouseEvent) => {
@@ -59,7 +59,7 @@ export default function MagneticButton({
 
   if (href && !disabled) {
     return (
-      <motion.div {...motionProps}>
+      <motion.div {...motionProps} ref={ref}>
         <Link href={href} className={baseClasses} onClick={onClick}>
           {children}
         </Link>
@@ -68,13 +68,7 @@ export default function MagneticButton({
   }
 
   return (
-    <motion.button
-      {...motionProps}
-      type={type}
-      onClick={onClick}
-      disabled={disabled}
-      className={baseClasses}
-    >
+    <motion.button {...motionProps} ref={ref as any} className={baseClasses} onClick={onClick} disabled={disabled} type={type}>
       {children}
     </motion.button>
   )
