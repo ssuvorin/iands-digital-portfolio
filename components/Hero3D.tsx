@@ -196,8 +196,7 @@ export default function Hero3D() {
             animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <span className="gradient-text">Next-Level</span><br />
-            Digital Experiences
+            <span className="gradient-text">I&S Media and Digital</span>
           </motion.h1>
 
           <motion.p
@@ -206,8 +205,9 @@ export default function Hero3D() {
             animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
             transition={{ duration: 0.6, delay: 0.7 }}
           >
-            We craft immersive digital experiences that captivate audiences, 
-            drive engagement, and deliver measurable results for forward thinking brand
+            We don't just build digital experiences — we build obsession.
+            <br />
+            Stories that spark curiosity. Funnels that convert. Ideas that <em>live</em> in minds.
           </motion.p>
 
           <motion.div

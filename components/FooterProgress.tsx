@@ -34,8 +34,9 @@ export default function FooterProgress() {
           >
             <h3 className="text-2xl font-bold gradient-text">I&S Media and Digital</h3>
             <p className="text-white/60 text-sm leading-relaxed">
-              Crafting next-level digital experiences that captivate, engage, 
-              and drive measurable results for forward-thinking brands.
+              We don't just build digital experiences — we build obsession.
+              <br />
+              Stories that spark curiosity. Funnels that convert. Ideas that <em>live</em> in minds.
             </p>
             <div className="flex space-x-4">
               <motion.a

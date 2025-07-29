@@ -1,6 +1,6 @@
 # 🌐 I&S Media and Digital Portfolio
 
-> **Next-Level Portfolio Experience** - An immersive, mobile-first portfolio that showcases creative firepower through smooth 3D animations, scroll-storytelling case studies, and micro-interactions.
+> **We don't just build digital experiences — we build obsession.** - An immersive, mobile-first portfolio that showcases creative firepower through smooth 3D animations, scroll-storytelling case studies, and micro-interactions.
 
 ## ✨ Features
 
@@ -139,6 +139,44 @@ whileHover={{ scale: 1.05 }}
 whileTap={{ scale: 0.95 }}
 ```
 
+## 🚢 Deployment
+
+### Vercel (Recommended)
+
+1. **Connect repository** to Vercel
+2. **Auto-deploy** on push to main
+3. **Environment variables** (if needed)
+
+### Manual Build
+
+```bash
+npm run build
+npm start
+```
+
+## 🚀 Quick Deploy to Vercel
+
+### Option 1: Deploy Button
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ssuvorin/iands-digital-portfolio)
+
+### Option 2: Vercel CLI
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+
+# Follow the prompts
+```
+
+### Option 3: GitHub Integration
+1. Go to [vercel.com](https://vercel.com)
+2. Click "New Project"
+3. Import your GitHub repository
+4. Vercel will automatically detect Next.js
+5. Click "Deploy"
+
 ## 📊 Performance Features
 
 - **Code Splitting** - Dynamic imports for heavy components
@@ -190,21 +228,6 @@ import { useGLTF } from '@react-three/drei'
 const { scene } = useGLTF('/models/logo.glb')
 ```
 
-## 🚢 Deployment
-
-### Vercel (Recommended)
-
-1. **Connect repository** to Vercel
-2. **Auto-deploy** on push to main
-3. **Environment variables** (if needed)
-
-### Manual Build
-
-```bash
-npm run build
-npm start
-```
-
 ## 📈 Analytics & SEO
 
 - **OG Image Generation** - Dynamic social previews
@@ -235,4 +258,4 @@ This project is proprietary to I&S Media and Digital. All rights reserved.
 
 ---
 
-**Built with ❤️ by I&S Media and Digital** - Crafting next-level digital experiences. 
+**Built with ❤️ by I&S Media and Digital** - We don't just build digital experiences — we build obsession. 
