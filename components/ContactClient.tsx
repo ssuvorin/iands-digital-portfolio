@@ -326,18 +326,6 @@ export default function ContactClient() {
                   </li>
                 </ul>
               </motion.div>
-              {/* Socials */}
-              <div className="flex space-x-4 mt-8 justify-center">
-                <a href="https://www.instagram.com/iandsagency" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-white/60 hover:text-accent transition-colors duration-300 text-2xl">
-                  <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M7.75 2A5.75 5.75 0 0 0 2 7.75v8.5A5.75 5.75 0 0 0 7.75 22h8.5A5.75 5.75 0 0 0 22 16.25v-8.5A5.75 5.75 0 0 0 16.25 2h-8.5Zm0 1.5h8.5A4.25 4.25 0 0 1 20.5 7.75v8.5a4.25 4.25 0 0 1-4.25 4.25h-8.5A4.25 4.25 0 0 1 3.5 16.25v-8.5A4.25 4.25 0 0 1 7.75 3.5Zm8.75 2.25a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 1.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7Z"/></svg>
-                </a>
-                <a href="https://www.tiktok.com/@iandsagency" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="text-white/60 hover:text-accent transition-colors duration-300 text-2xl">
-                  <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M17.5 2a.75.75 0 0 0-.75.75v10.5a3.25 3.25 0 1 1-3.25-3.25.75.75 0 0 0 0-1.5A4.75 4.75 0 1 0 18 14.25V8.56a6.25 6.25 0 0 0 3.25.94.75.75 0 0 0 .75-.75V4.25a.75.75 0 0 0-.75-.75h-3.75Zm.75 2.06c.7.4 1.5.64 2.25.69v3.02a7.75 7.75 0 0 1-2.25-.6V4.06ZM13.5 17.75a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5Z"/></svg>
-                </a>
-                <a href="https://www.linkedin.com/company/i-s-digital/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-white/60 hover:text-accent transition-colors duration-300 text-2xl">
-                  <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14Zm-7 7.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Zm-4.25 7.25h2.5v-5.5h-2.5v5.5Zm7.5 0h2.5v-3.25c0-1.24-.99-2.25-2.25-2.25s-2.25 1.01-2.25 2.25V18h2.5v-3.25c0-.41.34-.75.75-.75s.75.34.75.75V18Z"/></svg>
-                </a>
-              </div>
             </motion.div>
           </div>
         </div>
