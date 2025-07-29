@@ -64,7 +64,7 @@ function Logo3D() {
         {/* Orbiting dots - увеличиваем количество для более богатой анимации */}
         {[...Array(8)].map((_, i) => {
           const angle = (i / 8) * Math.PI * 2
-          const radius = 2.2
+          const radius = 2.22
           return (
             <Float
               key={i}
