@@ -6,7 +6,9 @@ import FooterProgress from '@/components/FooterProgress'
 // Dynamically import heavy components for performance
 const Hero3D = dynamic(() => import('@/components/Hero3D'), {
   ssr: false,
-  loading: () => <div className="h-screen bg-black" />,
+  loading: () => <div className="h-screen bg-black flex items-center justify-center">
+    <div className="text-4xl font-bold gradient-text">I&S Media and Digital</div>
+  </div>,
 })
 
 const FeaturedMetrics = dynamic(() => import('@/components/FeaturedMetrics'), {
@@ -26,9 +28,8 @@ export default function HomePage() {
     <main>
       <Navbar />
       
-      <Suspense fallback={<div className="h-screen bg-black" />}>
+      {/* Hero блок загружается без задержки */}
         <Hero3D />
-      </Suspense>
 
       <Suspense fallback={<div className="h-40 bg-black" />}>
         <FeaturedMetrics />

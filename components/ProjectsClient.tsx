@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Calendar, ArrowRight, Target } from 'lucide-react'
 import { projects } from '@/lib/projects'
 
@@ -46,14 +47,14 @@ export default function ProjectsClient() {
                 <Link href={`/projects/${project.id}`}>
                   <div className="glass-card group hover:scale-105 transition-all duration-300 overflow-hidden">
                     {/* Project Image */}
-                    <div className="aspect-[4/3] bg-gradient-to-br from-accent/20 to-white/10 flex items-center justify-center relative overflow-hidden">
-                      <div className="text-white/40 text-center">
-                        <div className="w-16 h-16 bg-white/10 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                          <Target className="w-8 h-8" />
-                        </div>
-                        <p className="font-medium">{project.title}</p>
-                        <p className="text-sm">Case Study</p>
-                      </div>
+                    <div className="aspect-[4/3] relative overflow-hidden">
+                      <Image
+                        src={project.cover}
+                        alt={`${project.title} - Project cover`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
                       {/* Hover overlay */}
                       <div className="absolute inset-0 bg-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>

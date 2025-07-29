@@ -1,4 +1,4 @@
-# 🌐 I&S Digital Portfolio
+# 🌐 I&S Media and Digital Portfolio
 
 > **Next-Level Portfolio Experience** - An immersive, mobile-first portfolio that showcases creative firepower through smooth 3D animations, scroll-storytelling case studies, and micro-interactions.
 
@@ -231,8 +231,8 @@ npm start
 
 ## 📄 License
 
-This project is proprietary to I&S Digital. All rights reserved.
+This project is proprietary to I&S Media and Digital. All rights reserved.
 
 ---
 
-**Built with ❤️ by I&S Digital** - Crafting next-level digital experiences. 
+**Built with ❤️ by I&S Media and Digital** - Crafting next-level digital experiences. 

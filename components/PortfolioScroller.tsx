@@ -187,25 +187,6 @@ export default function PortfolioScroller() {
         )}
       </div>
 
-      {/* Navigation hints - mobile optimized */}
-      <motion.div
-        className={`fixed ${isMobile ? 'bottom-4 right-4' : 'bottom-8 right-8'} z-20 glass-card p-4 rounded-lg ${isMobile ? 'text-xs' : 'text-sm'}`}
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1, duration: 0.5 }}
-      >
-        <div className="flex items-center space-x-2 text-white/60">
-          <span>{isMobile ? 'Swipe to navigate' : 'Swipe or scroll horizontally'}</span>
-          <motion.div
-            className="swipe-indicator"
-            animate={{ x: [0, 3, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          >
-            →
-          </motion.div>
-        </div>
-      </motion.div>
-
       {/* Mobile project counter */}
       {isMobile && (
         <motion.div

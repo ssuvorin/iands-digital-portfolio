@@ -1,1 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#18181b"/><text x="50%" y="54%" text-anchor="middle" font-size="32" font-family="Inter,Arial,sans-serif" fill="#ff7e29" font-weight="bold">I&amp;S</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background -->
+  <rect width="64" height="64" rx="8" fill="#000000"/>
+  
+  <!-- I&S Text -->
+  <text x="32" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#FF8040">
+    I&S
+  </text>
+</svg>

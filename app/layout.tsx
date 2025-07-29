@@ -15,7 +15,11 @@ export const metadata: Metadata = {
   title: defaultSEO.title,
   description: defaultSEO.description,
   keywords: ['digital agency', 'web design', 'branding', 'marketing', 'creative'],
-  authors: [{ name: 'I&S Digital' }],
+  authors: [{ name: 'I&S Media and Digital' }],
+  manifest: '/manifest.json',
+  icons: {
+    icon: '/favicon.svg',
+  },
   openGraph: {
     title: defaultSEO.title,
     description: defaultSEO.description,
@@ -43,6 +47,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={poppins.variable}>
+      <head>
+        <meta name="application-name" content="I&S Media and Digital" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="I&S Media" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+        <meta name="msapplication-TileColor" content="#FF8040" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="theme-color" content="#FF8040" />
+      </head>
       <body className={poppins.className}>
         <Providers>
           {children}

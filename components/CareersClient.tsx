@@ -123,7 +123,7 @@ export default function CareersClient() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold mb-6">
-              Why <span className="gradient-text">I&S Digital</span>?
+              Why <span className="gradient-text">I&S Media and Digital</span>?
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
               We&apos;re not just a workplace – we&apos;re a community of innovators building the future of digital experiences.

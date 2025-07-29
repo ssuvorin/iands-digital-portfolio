@@ -42,7 +42,7 @@ export default function Navbar() {
             transition={{ duration: 0.5 }}
           >
             <Link href="/" className="text-2xl font-bold gradient-text">
-              I&S Digital
+              I&S Media and Digital
             </Link>
           </motion.div>
 

@@ -20,39 +20,39 @@ function Logo3D() {
       })
     }
 
-    window.addEventListener('mousemove', handleMouseMove)
+    window.addEventListener('mousemove', handleMouseMove, { passive: true })
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
 
   useFrame((state) => {
     if (meshRef.current) {
-      // Gentle rotation based on time
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.1
+      // Более быстрая и плавная ротация
+      meshRef.current.rotation.y = state.clock.elapsedTime * 0.2
       
-      // Subtle mouse interaction
+      // Уменьшаем интенсивность взаимодействия с мышью для лучшей производительности
       meshRef.current.rotation.x = THREE.MathUtils.lerp(
         meshRef.current.rotation.x,
-        mousePosition.y * 0.1,
-        0.02
+        mousePosition.y * 0.05,
+        0.01
       )
       meshRef.current.rotation.z = THREE.MathUtils.lerp(
         meshRef.current.rotation.z,
-        mousePosition.x * 0.1,
-        0.02
+        mousePosition.x * 0.05,
+        0.01
       )
     }
   })
 
   return (
-    <group ref={meshRef}>
+    <group ref={meshRef} position={[0, 0.5, 0]}>
       <Float
-        speed={1.4}
-        rotationIntensity={0.4}
-        floatIntensity={0.4}
-        floatingRange={[0, 0.2]}
+        speed={2}
+        rotationIntensity={0.2}
+        floatIntensity={0.2}
+        floatingRange={[0, 0.1]}
       >
-        {/* Main sphere */}
-        <Sphere args={[1, 32, 32]} position={[0, 0, 0]}>
+        {/* Main sphere - упрощаем геометрию для лучшей производительности */}
+        <Sphere args={[1, 24, 24]} position={[0, 0, 0]}>
           <meshStandardMaterial
             color="#FF8040"
             metalness={0.8}
@@ -61,22 +61,22 @@ function Logo3D() {
           />
         </Sphere>
 
-        {/* Orbiting dots */}
+        {/* Orbiting dots - увеличиваем количество для более богатой анимации */}
         {[...Array(8)].map((_, i) => {
           const angle = (i / 8) * Math.PI * 2
-          const radius = 2.5
+          const radius = 2.2
           return (
             <Float
               key={i}
-              speed={2 + i * 0.1}
-              rotationIntensity={0.2}
-              floatIntensity={0.2}
+              speed={1.5 + i * 0.1}
+              rotationIntensity={0.1}
+              floatIntensity={0.1}
             >
               <Sphere
-                args={[0.1, 16, 16]}
+                args={[0.08, 12, 12]}
                 position={[
                   Math.cos(angle) * radius,
-                  Math.sin(angle * 0.5) * 0.5,
+                  Math.sin(angle * 0.5) * 0.3,
                   Math.sin(angle) * radius,
                 ]}
               >
@@ -109,7 +109,7 @@ function Fallback() {
           ease: 'easeInOut',
         }}
       >
-        I&S
+        I&S Media and Digital
       </motion.div>
     </div>
   )
@@ -117,12 +117,16 @@ function Fallback() {
 
 export default function Hero3D() {
   const [webglSupported, setWebglSupported] = useState(true)
+  const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
     // Check WebGL support
     const canvas = document.createElement('canvas')
     const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl')
     setWebglSupported(!!gl)
+    
+    // Mark as loaded immediately for better UX
+    setIsLoaded(true)
   }, [])
 
   return (
@@ -141,13 +145,20 @@ export default function Hero3D() {
         />
       </div>
 
-      {/* 3D Canvas */}
+      {/* 3D Canvas - Show immediately */}
       <div className="absolute inset-0">
         {webglSupported ? (
           <Canvas
-            camera={{ position: [0, 0, 6], fov: 50 }}
-            gl={{ antialias: true, alpha: true }}
-            dpr={[1, 2]}
+            camera={{ position: [0, 1.5, 6], fov: 50 }}
+            gl={{ 
+              antialias: false, 
+              alpha: true,
+              powerPreference: 'high-performance',
+              stencil: false,
+              depth: true
+            }}
+            dpr={[1, 1.5]}
+            performance={{ min: 0.5 }}
           >
             <Suspense fallback={null}>
               <ambientLight intensity={0.4} />
@@ -158,7 +169,7 @@ export default function Hero3D() {
               
               <Environment preset="city" />
               <ContactShadows 
-                position={[0, -2, 0]} 
+                position={[0, -1.5, 0]} 
                 opacity={0.4} 
                 scale={20} 
                 blur={1.5} 
@@ -171,39 +182,39 @@ export default function Hero3D() {
         )}
       </div>
 
-      {/* Content overlay */}
+      {/* Content overlay - Show with delay */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 30 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
           className="max-w-4xl mx-auto"
         >
           <motion.h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-shadow"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-12 text-shadow"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
+            animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
           >
             <span className="gradient-text">Next-Level</span><br />
             Digital Experiences
           </motion.h1>
 
           <motion.p
-            className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-white/80 mb-16 max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
+            animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
           >
             We craft immersive digital experiences that captivate audiences, 
-            drive engagement, and deliver measurable results for forward-thinking brands.
+            drive engagement, and deliver measurable results for forward thinking brand
           </motion.p>
 
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.1 }}
+            animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
+            transition={{ duration: 0.6, delay: 0.9 }}
           >
             <MagneticButton
               href="#projects"
@@ -224,8 +235,8 @@ export default function Hero3D() {
         <motion.div
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.5 }}
+          animate={{ opacity: isLoaded ? 1 : 0 }}
+          transition={{ duration: 0.6, delay: 1.1 }}
         >
           <motion.div
             className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center"

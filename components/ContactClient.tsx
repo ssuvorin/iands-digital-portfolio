@@ -8,8 +8,8 @@ const contactInfo = [
   {
     icon: <Mail className="w-6 h-6" />,
     title: 'Email Us',
-    info: 'hello@isdigital.ae',
-    link: 'mailto:hello@isdigital.ae',
+    info: 'hello@ins.digital',
+    link: 'mailto:hello@ins.digital',
   },
   {
     icon: <Phone className="w-6 h-6" />,
@@ -32,14 +32,11 @@ const contactInfo = [
 ]
 
 const services = [
-  'Web Design & Development',
-  'Brand Identity & Strategy',
-  'Digital Marketing',
   'Social Media Management',
-  'Content Creation',
-  'E-commerce Solutions',
-  'SEO & Analytics',
-  'Consulting',
+  'Advertisement & Lead Generation',
+  'Branding & Creative Solutions',
+  'Media Production & Content Creation',
+  'Web Development & SEO',
 ]
 
 export default function ContactClient() {
@@ -292,7 +289,7 @@ export default function ContactClient() {
               >
                 <h3 className="text-xl font-semibold mb-4 flex items-center">
                   <Globe className="w-5 h-5 mr-2 text-accent" />
-                  Why Choose I&S Digital?
+                  Why Choose I&S Media and Digital?
                 </h3>
                 <ul className="space-y-3 text-white/70">
                   <li className="flex items-center">

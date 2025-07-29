@@ -1,0 +1,43 @@
+{
+  "name": "I&S Media and Digital",
+  "short_name": "I&S Media",
+  "description": "Next-Level Digital Experiences - We craft immersive digital experiences that captivate audiences, drive engagement, and deliver measurable results for forward thinking brands",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#FF8040",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["business", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Our Work",
+      "short_name": "Work",
+      "description": "View our portfolio of projects",
+      "url": "/#projects"
+    },
+    {
+      "name": "Contact Us",
+      "short_name": "Contact",
+      "description": "Start your project with us",
+      "url": "/contact"
+    }
+  ]
+} 

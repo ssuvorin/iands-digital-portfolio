@@ -8,10 +8,11 @@ export interface SEOProps {
 }
 
 export const defaultSEO: SEOProps = {
-  title: 'I&S Digital - Next-Level Digital Experiences',
-  description: 'Creative digital agency crafting immersive experiences that drive results. Specializing in web design, branding, and digital marketing.',
+  title: 'I&S Media and Digital - Next-Level Digital Experiences',
+  description: 'I&S Media and Digital crafts immersive digital experiences that captivate audiences, drive engagement, and deliver measurable results for forward-thinking brands.',
   image: '/og-image.jpg',
   url: 'https://isdigital.com',
+
 };
 
 export function generateOGImage(title: string, subtitle?: string) {
@@ -60,7 +61,7 @@ export function generateOGImage(title: string, subtitle?: string) {
             fontWeight: 'bold',
           }}
         >
-          I&S Digital
+          I&S Media and Digital
         </div>
       </div>
     ),

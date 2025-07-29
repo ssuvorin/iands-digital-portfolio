@@ -9,7 +9,6 @@
     background-image: 
       radial-gradient(circle at 1px 1px, rgba(255,255,255,0.02) 1px, transparent 0);
     background-size: 20px 20px;
-    cursor: none;
   }
 
   html {
@@ -21,7 +20,8 @@
     font-size: 16px;
   }
 
-  /* Custom cursor */
+  /* Custom cursor - removed since we're using default cursor */
+  /*
   .cursor {
     position: fixed;
     width: 20px;
@@ -37,6 +37,7 @@
     transform: scale(2);
     background: radial-gradient(circle, rgba(255, 128, 64, 1) 0%, rgba(255, 128, 64, 0.3) 70%, transparent 100%);
   }
+  */
 
   /* Locomotive Scroll - temporarily disabled */
   /*

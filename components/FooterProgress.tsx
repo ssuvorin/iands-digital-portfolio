@@ -32,7 +32,7 @@ export default function FooterProgress() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold gradient-text">I&S Digital</h3>
+            <h3 className="text-2xl font-bold gradient-text">I&S Media and Digital</h3>
             <p className="text-white/60 text-sm leading-relaxed">
               Crafting next-level digital experiences that captivate, engage, 
               and drive measurable results for forward-thinking brands.
@@ -58,7 +58,9 @@ export default function FooterProgress() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M17.5 2a.75.75 0 0 0-.75.75v10.5a3.25 3.25 0 1 1-3.25-3.25.75.75 0 0 0 0-1.5A4.75 4.75 0 1 0 18 14.25V8.56a6.25 6.25 0 0 0 3.25.94.75.75 0 0 0 .75-.75V4.25a.75.75 0 0 0-.75-.75h-3.75Zm.75 2.06c.7.4 1.5.64 2.25.69v3.02a7.75 7.75 0 0 1-2.25-.6V4.06ZM13.5 17.75a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5Z"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.85V1h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                </svg>
               </motion.a>
               <motion.a
                 href="https://www.linkedin.com/company/i-s-digital/"
@@ -85,12 +87,11 @@ export default function FooterProgress() {
             <h4 className="text-lg font-semibold text-white">Services</h4>
             <ul className="space-y-2 text-sm">
               {[
-                'Web Design & Development',
-                'Brand Identity & Strategy',
-                'Digital Marketing',
-                'E-commerce Solutions',
-                'UI/UX Design',
-                'Content Creation',
+                'Social Media Management',
+                'Advertisement & Lead Generation',
+                'Branding & Creative Solutions',
+                'Media Production & Content Creation',
+                'Web Development & SEO',
               ].map((service) => (
                 <li key={service}>
                   <Link
@@ -147,10 +148,10 @@ export default function FooterProgress() {
               <div className="flex items-center space-x-3 text-white/60">
                 <Mail size={16} className="text-accent" />
                 <a
-                  href="mailto:hello@isdigital.ae"
+                  href="mailto:hello@ins.digital"
                   className="hover:text-accent transition-colors duration-300"
                 >
-                  hello@isdigital.ae
+                  hello@ins.digital
                 </a>
               </div>
               <div className="flex items-center space-x-3 text-white/60">
@@ -182,7 +183,7 @@ export default function FooterProgress() {
           viewport={{ once: true }}
         >
           <p className="text-white/40 text-sm">
-            © {currentYear} I&S Digital. All rights reserved.
+            © {currentYear} I&S Media and Digital. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm">
             <Link

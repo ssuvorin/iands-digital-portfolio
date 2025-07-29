@@ -3,13 +3,48 @@
 import { notFound } from 'next/navigation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowLeft, ExternalLink, Calendar, Target, Award } from 'lucide-react'
 import { projects } from '@/lib/projects'
+import { useState, useEffect } from 'react'
 
 interface PageProps {
   params: {
     slug: string
   }
+}
+
+// Компонент для безопасной загрузки изображения
+function SafeImage({ src, alt, ...props }: any) {
+  const [imageExists, setImageExists] = useState(true)
+  const [imageSrc, setImageSrc] = useState(src)
+
+  useEffect(() => {
+    const checkImage = async () => {
+      try {
+        const response = await fetch(src, { method: 'HEAD' })
+        if (!response.ok) {
+          setImageExists(false)
+        }
+      } catch (error) {
+        setImageExists(false)
+      }
+    }
+    checkImage()
+  }, [src])
+
+  if (!imageExists) {
+    return null
+  }
+
+  return (
+    <Image
+      src={imageSrc}
+      alt={alt}
+      onError={() => setImageExists(false)}
+      {...props}
+    />
+  )
 }
 
 export default function ProjectPage({ params }: PageProps) {
@@ -18,6 +53,32 @@ export default function ProjectPage({ params }: PageProps) {
   if (!project) {
     notFound()
   }
+
+  // Фильтруем только существующие изображения
+  const [existingImages, setExistingImages] = useState<string[]>([])
+
+  useEffect(() => {
+    const checkImages = async () => {
+      if (!project.gallery) return
+      
+      const checkedImages: string[] = []
+      
+      for (const imagePath of project.gallery) {
+        try {
+          const response = await fetch(imagePath, { method: 'HEAD' })
+          if (response.ok) {
+            checkedImages.push(imagePath)
+          }
+        } catch (error) {
+          // Изображение не существует, пропускаем
+        }
+      }
+      
+      setExistingImages(checkedImages)
+    }
+    
+    checkImages()
+  }, [project.gallery])
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -93,14 +154,17 @@ export default function ProjectPage({ params }: PageProps) {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="aspect-[4/3] bg-gradient-to-br from-accent/20 to-white/10 rounded-2xl flex items-center justify-center">
-                <div className="text-white/40 text-center">
-                  <div className="w-16 h-16 bg-white/10 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                    <Target className="w-8 h-8" />
-                  </div>
-                  <p className="font-medium">{project.title}</p>
-                  <p className="text-sm">Project Showcase</p>
-                </div>
+              <div className="relative overflow-hidden rounded-2xl bg-black/10">
+                <SafeImage
+                  src={project.cover}
+                  alt={`${project.title} - Project cover`}
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-contain"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
             </motion.div>
           </motion.div>
@@ -212,6 +276,54 @@ export default function ProjectPage({ params }: PageProps) {
           </motion.div>
         </div>
       </section>
+
+      {/* Project Gallery */}
+      {existingImages.length > 0 && (
+        <section className="py-20 px-4">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Project <span className="gradient-text">Gallery</span>
+              </h2>
+              <p className="text-white/70 max-w-2xl mx-auto">
+                Visual showcase of our work and the results we achieved for {project.title}.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {existingImages.map((image, index) => (
+                <motion.div
+                  key={index}
+                  className="group relative overflow-hidden rounded-2xl"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <div className="relative overflow-hidden rounded-2xl bg-black/10">
+                    <SafeImage
+                      src={image}
+                      alt={`${project.title} - Project image ${index + 1}`}
+                      width={600}
+                      height={400}
+                      className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Related Projects / CTA */}
       <section className="py-20 px-4 bg-black/50">

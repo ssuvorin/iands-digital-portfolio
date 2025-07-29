@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 
 export default function CustomCursor() {
@@ -10,9 +10,24 @@ export default function CustomCursor() {
   const cursorX = useMotionValue(-100)
   const cursorY = useMotionValue(-100)
 
-  const springConfig = { damping: 25, stiffness: 700 }
+  // Максимально быстрые настройки для мгновенного отклика
+  const springConfig = { damping: 5, stiffness: 2000, mass: 0.1 }
   const cursorXSpring = useSpring(cursorX, springConfig)
   const cursorYSpring = useSpring(cursorY, springConfig)
+
+  // Оптимизированный обработчик движения мыши
+  const moveCursor = useCallback((e: MouseEvent) => {
+    // Прямое позиционирование без задержек
+    cursorX.set(e.clientX - 8)
+    cursorY.set(e.clientY - 8)
+    
+    if (!isVisible) {
+      setIsVisible(true)
+    }
+  }, [cursorX, cursorY, isVisible])
+
+  const handleMouseEnter = useCallback(() => setIsHovering(true), [])
+  const handleMouseLeave = useCallback(() => setIsHovering(false), [])
 
   useEffect(() => {
     // Check for reduced motion preference
@@ -21,29 +36,17 @@ export default function CustomCursor() {
       return
     }
 
-    const moveCursor = (e: MouseEvent) => {
-      cursorX.set(e.clientX - 10)
-      cursorY.set(e.clientY - 10)
-      
-      if (!isVisible) {
-        setIsVisible(true)
-      }
-    }
+    // Используем passive: true для лучшей производительности
+    window.addEventListener('mousemove', moveCursor, { passive: true })
 
-    const handleMouseEnter = () => setIsHovering(true)
-    const handleMouseLeave = () => setIsHovering(false)
-
-    // Add cursor movement listener
-    window.addEventListener('mousemove', moveCursor)
-
-    // Add hover listeners to interactive elements
+    // Добавляем обработчики для интерактивных элементов
     const interactiveElements = document.querySelectorAll(
       'a, button, [role="button"], .magnetic-button, input, textarea, select'
     )
 
     interactiveElements.forEach((el) => {
-      el.addEventListener('mouseenter', handleMouseEnter)
-      el.addEventListener('mouseleave', handleMouseLeave)
+      el.addEventListener('mouseenter', handleMouseEnter, { passive: true })
+      el.addEventListener('mouseleave', handleMouseLeave, { passive: true })
     })
 
     return () => {
@@ -53,7 +56,7 @@ export default function CustomCursor() {
         el.removeEventListener('mouseleave', handleMouseLeave)
       })
     }
-  }, [cursorX, cursorY, isVisible])
+  }, [moveCursor, handleMouseEnter, handleMouseLeave])
 
   if (!isVisible) return null
 
@@ -65,12 +68,12 @@ export default function CustomCursor() {
         y: cursorYSpring,
       }}
       animate={{
-        scale: isHovering ? 2 : 1,
-        opacity: isHovering ? 0.8 : 0.6,
+        scale: isHovering ? 1.5 : 1,
+        opacity: isHovering ? 0.9 : 0.7,
       }}
       transition={{
-        scale: { duration: 0.1 },
-        opacity: { duration: 0.1 },
+        scale: { duration: 0.02 },
+        opacity: { duration: 0.02 },
       }}
     />
   )

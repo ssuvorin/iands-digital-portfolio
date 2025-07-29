@@ -55,7 +55,7 @@ export default function AboutClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            We&apos;re I&S Digital - a creative agency that transforms ambitious brands through 
+            We&apos;re I&S Media and Digital - a creative agency that transforms ambitious brands through 
             innovative digital strategies and cutting-edge design.
           </motion.p>
         </div>
@@ -87,7 +87,7 @@ export default function AboutClient() {
               <div className="space-y-4 text-white/80 leading-relaxed">
                 <p>
                   Founded with a vision to bridge the gap between creative excellence and digital innovation, 
-                  I&S Digital has grown into a trusted partner for premium brands across multiple industries.
+                  I&S Media and Digital has grown into a trusted partner for premium brands across multiple industries.
                 </p>
                 <p>
                   From luxury real estate to cutting-edge F&B concepts, we&apos;ve helped ambitious businesses 

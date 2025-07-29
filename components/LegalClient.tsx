@@ -156,19 +156,19 @@ export default function LegalClient() {
                 icon: <Users className="w-6 h-6" />,
                 title: 'Legal Team',
                 description: 'Our experienced legal team is here to help with any questions.',
-                contact: 'legal@isdigital.ae',
+                contact: 'legal@ins.digital',
               },
               {
                 icon: <Globe className="w-6 h-6" />,
                 title: 'Compliance',
                 description: 'We maintain compliance with international and local regulations.',
-                contact: 'compliance@isdigital.ae',
+                contact: 'compliance@ins.digital',
               },
               {
                 icon: <Shield className="w-6 h-6" />,
                 title: 'Data Protection',
                 description: 'For data protection and privacy inquiries.',
-                contact: 'dpo@isdigital.ae',
+                contact: 'dpo@ins.digital',
               },
             ].map((item, index) => (
               <motion.div

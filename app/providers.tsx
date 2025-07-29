@@ -9,14 +9,9 @@ const LocomotiveProvider = dynamic(() => import('@/components/LocomotiveProvider
   ssr: false,
 })
 
-const CustomCursor = dynamic(() => import('@/components/CustomCursor'), {
-  ssr: false,
-})
-
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <CustomCursor />
       <LocomotiveProvider>
         <motion.div
           initial={{ opacity: 0 }}

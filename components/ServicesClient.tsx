@@ -2,104 +2,71 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowRight, Palette, Code, Megaphone, Camera, BarChart3, ShoppingCart, Search, Lightbulb, CheckCircle } from 'lucide-react'
+import { ArrowRight, Palette, Code, Megaphone, Camera, BarChart3, ShoppingCart, Search, Lightbulb, CheckCircle, Users, Globe, Shield, MessageSquare, Target, Video, Monitor } from 'lucide-react'
 
 const services = [
   {
-    icon: <Palette className="w-8 h-8" />,
-    title: 'Brand Identity & Strategy',
-    description: 'Complete brand transformation from concept to execution.',
+    icon: <MessageSquare className="w-8 h-8" />,
+    title: 'Social Media Management',
+    description: 'Complete social media strategy and management for brand growth.',
     features: [
-      'Logo Design & Brand Guidelines',
-      'Visual Identity Systems',
-      'Brand Strategy & Positioning',
-      'Packaging & Collateral Design',
+      'Strategy Development',
+      'Content Calendar Planning',
+      'Content Production & Curation',
+      'Influencer Marketing & UGC',
+      'Community Management',
     ],
-    process: 'Discovery → Strategy → Design → Implementation',
+    process: 'Strategy → Content → Engagement → Growth',
   },
   {
-    icon: <Code className="w-8 h-8" />,
-    title: 'Web Design & Development',
-    description: 'Premium websites that convert visitors into customers.',
+    icon: <Target className="w-8 h-8" />,
+    title: 'Advertisement & Lead Generation',
+    description: 'Data-driven advertising campaigns that generate qualified leads.',
     features: [
-      'Custom Website Design',
-      'Responsive Development',
-      'CMS Integration',
-      'Performance Optimization',
-    ],
-    process: 'Planning → Design → Development → Launch',
-  },
-  {
-    icon: <Megaphone className="w-8 h-8" />,
-    title: 'Digital Marketing',
-    description: 'Data-driven campaigns that deliver measurable results.',
-    features: [
-      'Meta & TikTok Advertising',
-      'Google Ads & PPC',
-      'Social Media Strategy',
-      'Email Marketing Automation',
+      'Social Media Ads (Facebook, Instagram, TikTok, LinkedIn)',
+      'Google Ads (Search, Display, YouTube)',
+      'PPC Campaigns & Retargeting',
+      '(P)OOH Advertisement',
+      'Media Planning & Buying',
     ],
     process: 'Strategy → Campaign Setup → Optimization → Reporting',
   },
   {
-    icon: <Camera className="w-8 h-8" />,
-    title: 'Content Creation',
-    description: 'Compelling content that engages and converts.',
+    icon: <Palette className="w-8 h-8" />,
+    title: 'Branding & Creative Solutions',
+    description: 'Complete brand transformation from concept to execution.',
     features: [
-      'Photography & Videography',
+      'Brand Strategy Development',
+      'Concept Creation & Voice',
+      'Corporate Identity',
+      'Creative Campaigns',
+      'Personal Branding for Executives',
+    ],
+    process: 'Discovery → Strategy → Design → Implementation',
+  },
+  {
+    icon: <Video className="w-8 h-8" />,
+    title: 'Media Production & Content Creation',
+    description: 'Professional content creation and media production.',
+    features: [
+      'Pre-production: Concept, Casting, Scriptwriting',
       'Graphic Design',
-      'Copywriting & Content Strategy',
-      'Social Media Content',
+      'Post-production: Editing, Retouching, Color Grading, Sound Design',
     ],
-    process: 'Brief → Creation → Review → Delivery',
+    process: 'Concept → Production → Post-production → Delivery',
   },
   {
-    icon: <BarChart3 className="w-8 h-8" />,
-    title: 'Analytics & Optimization',
-    description: 'Turn data into actionable insights for growth.',
+    icon: <Code className="w-8 h-8" />,
+    title: 'Web Development & SEO',
+    description: 'Premium websites with SEO optimization for maximum visibility.',
     features: [
-      'Performance Tracking',
-      'Conversion Rate Optimization',
-      'User Behavior Analysis',
-      'Custom Reporting Dashboards',
-    ],
-    process: 'Setup → Monitoring → Analysis → Optimization',
-  },
-  {
-    icon: <ShoppingCart className="w-8 h-8" />,
-    title: 'E-commerce Solutions',
-    description: 'Complete online stores that drive sales.',
-    features: [
-      'Shopify & WooCommerce',
-      'Payment Gateway Integration',
-      'Inventory Management',
-      'Order Fulfillment Systems',
-    ],
-    process: 'Planning → Setup → Design → Integration',
-  },
-  {
-    icon: <Search className="w-8 h-8" />,
-    title: 'SEO & Search Marketing',
-    description: 'Improve visibility and drive organic traffic.',
-    features: [
-      'Technical SEO Audits',
-      'Keyword Research & Strategy',
-      'Content Optimization',
+      'Website Design & Development (Landing Pages, Corporate, E-commerce)',
+      'Responsive & Mobile Optimization',
+      'UX/UI Design Optimized for Conversions',
+      'SEO Optimization (Keywords, Technical SEO, Content)',
       'Local SEO',
     ],
-    process: 'Audit → Strategy → Implementation → Monitoring',
-  },
-  {
-    icon: <Lightbulb className="w-8 h-8" />,
-    title: 'Digital Consulting',
-    description: 'Strategic guidance for digital transformation.',
-    features: [
-      'Digital Strategy Planning',
-      'Technology Recommendations',
-      'Process Optimization',
-      'Growth Strategy Development',
-    ],
-    process: 'Assessment → Strategy → Planning → Implementation',
+    process: 'Planning → Design → Development → SEO → Launch',
   },
 ]
 
@@ -158,7 +125,7 @@ export default function ServicesClient() {
               and accelerate your business growth.
             </p>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
