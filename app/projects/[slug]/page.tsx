@@ -94,7 +94,7 @@ export default function ProjectPage({ params }: PageProps) {
             transition={{ duration: 0.6 }}
           >
             <Link
-              href="/#projects"
+              href="/projects"
               className="inline-flex items-center text-white/70 hover:text-accent transition-colors duration-300"
             >
               <ArrowLeft className="w-5 h-5 mr-2" />
@@ -361,7 +361,7 @@ export default function ProjectPage({ params }: PageProps) {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  href="/#projects"
+                  href="/projects"
                   className="inline-flex items-center border border-accent text-accent hover:bg-accent hover:text-black px-8 py-4 rounded-lg font-semibold transition-colors duration-300"
                 >
                   View All Projects
