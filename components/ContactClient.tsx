@@ -55,22 +55,37 @@ export default function ContactClient() {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      service: '',
-      budget: '',
-      message: '',
-    })
-    setIsSubmitting(false)
-    
-    // You would typically send this to your backend here
-    alert('Thank you for your message! We&apos;ll get back to you soon.')
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+
+      if (response.ok) {
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          service: '',
+          budget: '',
+          message: '',
+        })
+        alert('Thank you for your message! We\'ll get back to you soon.')
+      } else {
+        throw new Error(result.error || 'Failed to send message')
+      }
+    } catch (error) {
+      console.error('Error sending message:', error)
+      alert('Sorry, there was an error sending your message. Please try again or contact us directly.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -198,6 +213,7 @@ export default function ContactClient() {
                       className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:border-accent focus:outline-none transition-colors duration-300"
                     >
                       <option value="">Select budget range</option>
+                      <option value="1.5k-5k" className="bg-black">$1,500 - $5,000</option>
                       <option value="5k-10k" className="bg-black">$5,000 - $10,000</option>
                       <option value="10k-25k" className="bg-black">$10,000 - $25,000</option>
                       <option value="25k-50k" className="bg-black">$25,000 - $50,000</option>

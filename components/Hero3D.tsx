@@ -205,7 +205,7 @@ export default function Hero3D() {
             animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
             transition={{ duration: 0.6, delay: 0.7 }}
           >
-            We don't just build digital experiences — we build obsession.
+            We don&apos;t just build digital experiences — we build obsession.
             <br />
             Stories that spark curiosity. Funnels that convert. Ideas that <em>live</em> in minds.
           </motion.p>

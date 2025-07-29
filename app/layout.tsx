@@ -18,7 +18,14 @@ export const metadata: Metadata = {
   authors: [{ name: 'I&S Media and Digital' }],
   manifest: '/manifest.json',
   icons: {
-    icon: '/favicon.svg',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: 'any' }
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
+    ],
+    shortcut: '/favicon.ico',
   },
   openGraph: {
     title: defaultSEO.title,
