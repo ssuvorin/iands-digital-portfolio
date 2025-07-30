@@ -42,10 +42,10 @@ export async function POST(request: NextRequest) {
       { message: 'Message saved to Notion successfully' },
       { status: 200 }
     )
-  } catch (error) {
+  } catch (error: any) {
     console.error('Contact form error:', error)
     return NextResponse.json(
-      { error: 'Failed to save message to Notion' },
+      { error: 'Failed to save message to Notion', details: error?.body || error?.message || String(error) },
       { status: 500 }
     )
   }
