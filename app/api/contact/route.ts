@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
-import nodemailer from 'nodemailer'
+import { Client } from '@notionhq/client'
+
+const notion = new Client({ auth: process.env.NOTION_API_KEY })
+const databaseId = process.env.NOTION_DATABASE_ID
 
 export async function POST(request: NextRequest) {
   try {
@@ -14,45 +17,35 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Создаем транспортер для отправки email
-    const transporter = nodemailer.createTransport({
-      service: 'gmail', // или другой сервис
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+    if (!databaseId) {
+      return NextResponse.json(
+        { error: 'Notion database ID is not set' },
+        { status: 500 }
+      )
+    }
+
+    // Сохраняем заявку в Notion
+    await notion.pages.create({
+      parent: { database_id: databaseId },
+      properties: {
+        Name: { title: [{ text: { content: name } }] },
+        Email: { email: email },
+        Company: { rich_text: [{ text: { content: company || '' } }] },
+        Service: { rich_text: [{ text: { content: service || '' } }] },
+        Budget: { rich_text: [{ text: { content: budget || '' } }] },
+        Message: { rich_text: [{ text: { content: message } }] },
+        Submitted: { date: { start: new Date().toISOString() } },
       },
     })
 
-    // Формируем email
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: 'hello@ins.digital', // Email для получения заявок
-      subject: `New Project Inquiry from ${name}`,
-      html: `
-        <h2>New Project Inquiry</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Company:</strong> ${company || 'Not specified'}</p>
-        <p><strong>Service:</strong> ${service || 'Not specified'}</p>
-        <p><strong>Budget:</strong> ${budget || 'Not specified'}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-        <hr>
-        <p><small>Sent from I&S Media and Digital website</small></p>
-      `,
-    }
-
-    // Отправляем email
-    await transporter.sendMail(mailOptions)
-
     return NextResponse.json(
-      { message: 'Message sent successfully' },
+      { message: 'Message saved to Notion successfully' },
       { status: 200 }
     )
   } catch (error) {
     console.error('Contact form error:', error)
     return NextResponse.json(
-      { error: 'Failed to send message' },
+      { error: 'Failed to save message to Notion' },
       { status: 500 }
     )
   }

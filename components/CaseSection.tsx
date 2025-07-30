@@ -166,11 +166,13 @@ export default function CaseSection({ project, index }: CaseSectionProps) {
           transition={{ duration: 0.8, delay: index * 0.2 + 0.3 }}
         >
           <div className="aspect-[4/3] rounded-lg overflow-hidden bg-black/20">
-            <div className="w-full h-full bg-gradient-to-br from-accent/20 to-transparent flex items-center justify-center">
-              <span className="text-white/40 text-xs font-medium">
-                Project Preview
-              </span>
-            </div>
+            <Image
+              src={project.cover}
+              alt={`${project.title} - Project preview`}
+              fill
+              className="object-cover"
+              sizes="100vw"
+            />
           </div>
         </motion.div>
       </div>
