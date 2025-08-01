@@ -6,12 +6,13 @@ import { useEffect, useState } from 'react'
 const clientLogos = [
   { name: 'Metropolitan Premium Properties' },
   { name: 'Lounge 17' },
-  { name: 'NStyle International' },
+  { name: 'NSTYLE BEAUTY LOUNGE' },
   { name: 'Novvi Properties' },
   { name: 'Binghatti Developers' },
   { name: 'Breaking Bread' },
   { name: 'Vota Properties' },
   { name: 'Spiridon' },
+  { name: 'BLACKOAK REAL ESTATE' },
 ]
 
 // Duplicate for seamless loop - need more copies for smooth infinite scroll

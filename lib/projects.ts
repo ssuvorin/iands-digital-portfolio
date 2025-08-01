@@ -82,7 +82,7 @@ export const projects: Project[] = [
   },
   {
     id: 'nstyle',
-    title: 'NStyle International',
+    title: 'NSTYLE BEAUTY LOUNGE',
     industry: 'Beauty & Wellness',
     year: 2024,
     description: 'Multi-channel social media promotion and targeted messaging campaigns for beauty services, focusing on customer retention and steady income.',
@@ -94,7 +94,7 @@ export const projects: Project[] = [
       { value: 'AED 72.5K', label: 'Annual Marketing Budget' },
     ],
     quote: 'Their multi-platform approach generated exceptional ROI and quality leads for our beauty services.',
-    url: 'https://nstyle-international.com',
+    url: 'https://nstyle-beauty-lounge.com',
     gallery: [
       '/projects/nstyle/cover.jpg',
       '/projects/nstyle/1.jpg',
@@ -259,6 +259,37 @@ export const projects: Project[] = [
       '/projects/spiridon/10.png',
       '/projects/spiridon/11.png',
       '/projects/spiridon/12.png'
+    ],
+  },
+  {
+    id: 'blackoak',
+    title: 'BLACKOAK REAL ESTATE',
+    industry: 'Real Estate',
+    year: 2024,
+    description: 'Paid social media advertising campaigns and targeted messaging campaigns for high-quality lead generation, focusing on closing deals and building strong social media presence.',
+    tags: ['Paid Advertising', 'Lead Generation', 'Social Media', 'Real Estate'],
+    cover: '/projects/blackoak/cover.jpg',
+    kpis: [
+      { value: '6', label: 'Closed Deals' },
+      { value: '$3M+', label: 'Total Revenue' },
+      { value: '14,355', label: 'Link Clicks' },
+    ],
+    quote: 'Achieved 6 closed deals and $3,000,000+ in total revenue in just 1 month through strategic paid advertising.',
+    url: 'https://blackoak-realestate.com',
+    gallery: [
+      '/projects/blackoak/cover.jpg',
+      '/projects/blackoak/1.jpg',
+      '/projects/blackoak/2.jpg',
+      '/projects/blackoak/3.jpg',
+      '/projects/blackoak/4.jpg',
+      '/projects/blackoak/5.jpg',
+      '/projects/blackoak/6.jpg',
+      '/projects/blackoak/7.jpg',
+      '/projects/blackoak/8.jpg',
+      '/projects/blackoak/9.jpg',
+      '/projects/blackoak/10.jpg',
+      '/projects/blackoak/11.jpg',
+      '/projects/blackoak/12.jpg'
     ],
   },
 ];

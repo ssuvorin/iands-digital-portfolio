@@ -24,10 +24,11 @@ public/projects/[project-name]/
 ## 🎯 Текущие проекты
 
 ### ✅ Существующие проекты с изображениями:
-- **nstyle** - Beauty & Wellness
+- **nstyle** - Beauty & Wellness (NSTYLE BEAUTY LOUNGE)
 - **metropolitan** - Real Estate (6 изображений)
 - **lounge17** - F&B / Night Lounge (7 изображений)
 - **binghatti** - Luxury Development (6 изображений PNG)
+- **blackoak** - Real Estate (готов для изображений)
 
 ### 📁 Пустые папки (готовы для изображений):
 - **novvi** - Real Estate
@@ -35,6 +36,7 @@ public/projects/[project-name]/
 - **breaking-bread** - Restaurant
 - **vota** - Investment Real Estate
 - **spiridon** - FMCG / Brand
+- **blackoak** - Real Estate
 
 ## 📋 Как добавить изображения
 
