@@ -150,7 +150,7 @@ export const projects: Project[] = [
     tags: ['Viral Marketing', 'Content Strategy', 'Luxury Real Estate', 'Engagement'],
     cover: '/projects/binghatti/cover.png',
     kpis: [
-      { value: '+150%', label: 'Engagement Growth' },
+      { value: '+300%', label: 'Engagement Growth' },
       { value: 'NDA', label: 'Project Details' },
       { value: 'Viral', label: 'Content Strategy' },
     ],
