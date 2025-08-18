@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import Link from 'next/link'
+import { Mail, Phone, MapPin } from 'lucide-react'
 
 export default function FooterProgress() {
   const [currentYear] = useState(new Date().getFullYear())
@@ -22,7 +23,7 @@ export default function FooterProgress() {
       />
 
       <div className="max-w-7xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
           {/* Services */}
           <motion.div
@@ -82,12 +83,50 @@ export default function FooterProgress() {
             </ul>
           </motion.div>
 
-          {/* Quick Lead Form */}
+          {/* Contact Info */}
           <motion.div
             className="space-y-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            viewport={{ once: true }}
+          >
+            <h4 className="text-lg font-semibold text-white">Get in Touch</h4>
+            <div className="space-y-3 text-sm">
+              <div className="flex items-center space-x-3 text-white/60">
+                <Mail size={16} className="text-accent" />
+                <a
+                  href="mailto:hello@ins.digital"
+                  className="hover:text-accent transition-colors duration-300"
+                >
+                  hello@ins.digital
+                </a>
+              </div>
+              <div className="flex items-center space-x-3 text-white/60">
+                <Phone size={16} className="text-accent" />
+                <a
+                  href="tel:+971502322949"
+                  className="hover:text-accent transition-colors duration-300"
+                >
+                  +971 50 232 2949
+                </a>
+              </div>
+              <div className="flex items-start space-x-3 text-white/60">
+                <MapPin size={16} className="text-accent mt-0.5" />
+                <span>
+                  Dubai, Dusseldorf Business Point,<br />
+                  office 903
+                </span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Quick Lead Form (on the right of contact info) */}
+          <motion.div
+            className="space-y-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
             viewport={{ once: true }}
           >
             <h4 className="text-lg font-semibold text-white">Get in Touch</h4>
