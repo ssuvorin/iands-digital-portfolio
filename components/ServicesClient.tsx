@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowRight, Palette, Code, Megaphone, Camera, BarChart3, ShoppingCart, Search, Lightbulb, CheckCircle, Users, Globe, Shield, MessageSquare, Target, Video, Monitor } from 'lucide-react'
+import { ArrowRight, Palette, Megaphone, Camera, BarChart3, ShoppingCart, Search, Lightbulb, CheckCircle, Users, Globe, Shield, MessageSquare, Target, Video, Monitor } from 'lucide-react'
 
 const services = [
   {
@@ -54,19 +54,6 @@ const services = [
       'Post-production: Editing, Retouching, Color Grading, Sound Design',
     ],
     process: 'Concept → Production → Post-production → Delivery',
-  },
-  {
-    icon: <Code className="w-8 h-8" />,
-    title: 'Web Development & SEO',
-    description: 'Premium websites with SEO optimization for maximum visibility.',
-    features: [
-      'Website Design & Development (Landing Pages, Corporate, E-commerce)',
-      'Responsive & Mobile Optimization',
-      'UX/UI Design Optimized for Conversions',
-      'SEO Optimization (Keywords, Technical SEO, Content)',
-      'Local SEO',
-    ],
-    process: 'Planning → Design → Development → SEO → Launch',
   },
 ]
 
@@ -289,7 +276,7 @@ export default function ServicesClient() {
                   href="/contact"
                   className="inline-flex items-center bg-accent hover:bg-accent/90 text-black px-8 py-4 rounded-lg font-semibold transition-colors duration-300"
                 >
-                  Start Your Project
+                  Get Your Offer
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </motion.div>

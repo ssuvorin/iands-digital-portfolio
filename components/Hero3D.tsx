@@ -226,7 +226,7 @@ export default function Hero3D() {
               href="/contact"
               className="border border-white/30 hover:border-accent text-white hover:text-accent px-8 py-4 rounded-lg font-semibold text-lg"
             >
-              Start Your Project
+              Get Your Offer
             </MagneticButton>
           </motion.div>
         </motion.div>

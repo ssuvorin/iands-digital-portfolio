@@ -351,7 +351,7 @@ export default function ProjectPage({ params }: PageProps) {
                   href="/contact"
                   className="inline-flex items-center bg-accent hover:bg-accent/90 text-black px-8 py-4 rounded-lg font-semibold transition-colors duration-300"
                 >
-                  Start Your Project
+                  Get Your Offer
                   <ExternalLink className="ml-2 w-5 h-5" />
                 </Link>
               </motion.div>

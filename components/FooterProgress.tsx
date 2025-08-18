@@ -92,7 +92,6 @@ export default function FooterProgress() {
                 'Advertisement & Lead Generation',
                 'Branding & Creative Solutions',
                 'Media Production & Content Creation',
-                'Web Development & SEO',
               ].map((service) => (
                 <li key={service}>
                   <Link

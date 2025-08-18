@@ -36,7 +36,6 @@ const services = [
   'Advertisement & Lead Generation',
   'Branding & Creative Solutions',
   'Media Production & Content Creation',
-  'Web Development & SEO',
 ]
 
 export default function ContactClient() {
