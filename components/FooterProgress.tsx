@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import Link from 'next/link'
-import { Mail, Phone, MapPin, Instagram, Linkedin } from 'lucide-react'
 
 export default function FooterProgress() {
   const [currentYear] = useState(new Date().getFullYear())
@@ -23,59 +22,7 @@ export default function FooterProgress() {
       />
 
       <div className="max-w-7xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Brand */}
-          <motion.div
-            className="space-y-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-2xl font-bold gradient-text">I&S Media and Digital</h3>
-            <p className="text-white/60 text-sm leading-relaxed">
-              We don&apos;t just build digital experiences — we build obsession.
-              <br />
-              Stories that spark curiosity. Funnels that convert. Ideas that <em>live</em> in minds.
-            </p>
-            <div className="flex space-x-4">
-              <motion.a
-                href="https://www.instagram.com/iandsagency"
-                className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/60 hover:text-accent hover:bg-accent/10 transition-all duration-300"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label="Instagram"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Instagram size={18} />
-              </motion.a>
-              <motion.a
-                href="https://www.tiktok.com/@iandsagency"
-                className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/60 hover:text-accent hover:bg-accent/10 transition-all duration-300"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label="TikTok"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.85V1h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                </svg>
-              </motion.a>
-              <motion.a
-                href="https://www.linkedin.com/company/i-s-digital/"
-                className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/60 hover:text-accent hover:bg-accent/10 transition-all duration-300"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label="LinkedIn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Linkedin size={18} />
-              </motion.a>
-            </div>
-          </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
           {/* Services */}
           <motion.div
@@ -135,7 +82,7 @@ export default function FooterProgress() {
             </ul>
           </motion.div>
 
-          {/* Contact */}
+          {/* Quick Lead Form */}
           <motion.div
             className="space-y-4"
             initial={{ opacity: 0, y: 20 }}
@@ -144,33 +91,7 @@ export default function FooterProgress() {
             viewport={{ once: true }}
           >
             <h4 className="text-lg font-semibold text-white">Get in Touch</h4>
-            <div className="space-y-3 text-sm">
-              <div className="flex items-center space-x-3 text-white/60">
-                <Mail size={16} className="text-accent" />
-                <a
-                  href="mailto:hello@ins.digital"
-                  className="hover:text-accent transition-colors duration-300"
-                >
-                  hello@ins.digital
-                </a>
-              </div>
-              <div className="flex items-center space-x-3 text-white/60">
-                <Phone size={16} className="text-accent" />
-                <a
-                  href="tel:+971502322949"
-                  className="hover:text-accent transition-colors duration-300"
-                >
-                  +971 50 232 2949
-                </a>
-              </div>
-              <div className="flex items-start space-x-3 text-white/60">
-                <MapPin size={16} className="text-accent mt-0.5" />
-                <span>
-                  Dubai, Dusseldorf Business Point,<br />
-                  office 903
-                </span>
-              </div>
-            </div>
+            <QuickLeadForm />
           </motion.div>
         </div>
 
@@ -204,3 +125,121 @@ export default function FooterProgress() {
     </footer>
   )
 } 
+
+function QuickLeadForm() {
+  const [name, setName] = useState('')
+  const [niche, setNiche] = useState('')
+  const [customNiche, setCustomNiche] = useState('')
+  const [phone, setPhone] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState('')
+
+  const resolvedNiche = niche === 'Other' ? customNiche : niche
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setError('')
+    try {
+      const payload = {
+        name,
+        email: 'lead@ins.digital',
+        company: '',
+        service: 'Quick Lead',
+        budget: '',
+        message: `Phone: ${phone}\nNiche: ${resolvedNiche || 'N/A'}`,
+      }
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        throw new Error(data?.error || 'Failed to submit')
+      }
+      setSubmitted(true)
+      setName('')
+      setNiche('')
+      setCustomNiche('')
+      setPhone('')
+    } catch (err: any) {
+      setError(err?.message || 'Submission error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  if (submitted) {
+    return (
+      <div className="glass-card p-4 rounded-lg text-sm text-white/70">
+        Thanks! We’ll reach out shortly.
+      </div>
+    )
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="glass-card p-4 rounded-lg space-y-3">
+      {error && (
+        <div className="text-red-400 text-xs">{error}</div>
+      )}
+      <div>
+        <label className="block text-white/80 mb-1 text-xs">Name *</label>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+          className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-md focus:border-accent focus:outline-none text-sm"
+          placeholder="Your name"
+        />
+      </div>
+      <div>
+        <label className="block text-white/80 mb-1 text-xs">Niche</label>
+        <select
+          value={niche}
+          onChange={(e) => setNiche(e.target.value)}
+          className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-md focus:border-accent focus:outline-none text-sm"
+        >
+          <option value="" className="bg-black">Select niche</option>
+          <option value="Real Estate" className="bg-black">Real Estate</option>
+          <option value="F&B" className="bg-black">F&amp;B</option>
+          <option value="Beauty" className="bg-black">Beauty</option>
+          <option value="Other" className="bg-black">Other</option>
+        </select>
+      </div>
+      {niche === 'Other' && (
+        <div>
+          <label className="block text-white/80 mb-1 text-xs">Other niche</label>
+          <input
+            type="text"
+            value={customNiche}
+            onChange={(e) => setCustomNiche(e.target.value)}
+            className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-md focus:border-accent focus:outline-none text-sm"
+            placeholder="Type your niche"
+          />
+        </div>
+      )}
+      <div>
+        <label className="block text-white/80 mb-1 text-xs">Phone *</label>
+        <input
+          type="tel"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          required
+          className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-md focus:border-accent focus:outline-none text-sm"
+          placeholder="+971 ..."
+        />
+      </div>
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full bg-accent hover:bg-accent/90 disabled:bg-accent/50 text-black px-4 py-2 rounded-md font-semibold text-sm transition-colors duration-300"
+      >
+        {isSubmitting ? 'Sending...' : 'Send'}
+      </button>
+      <p className="text-[10px] text-white/40">By submitting, you agree to our Privacy Policy.</p>
+    </form>
+  )
+}
