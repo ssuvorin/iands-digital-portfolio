@@ -129,7 +129,6 @@ export default function FooterProgress() {
             transition={{ duration: 0.6, delay: 0.35 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg font-semibold text-white">Get in Touch</h4>
             <QuickLeadForm />
           </motion.div>
         </div>
