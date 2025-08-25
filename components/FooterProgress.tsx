@@ -182,11 +182,11 @@ function QuickLeadForm() {
     try {
       const payload = {
         name,
-        email: 'lead@ins.digital',
+        phone,
         company: '',
         service: 'Quick Lead',
         budget: '',
-        message: `Phone: ${phone}\nNiche: ${resolvedNiche || 'N/A'}`,
+        message: `Niche: ${resolvedNiche || 'N/A'}`,
       }
       const res = await fetch('/api/contact', {
         method: 'POST',

@@ -7,10 +7,10 @@ const databaseId = process.env.NOTION_DATABASE_ID
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { name, email, company, service, budget, message } = body
+    const { name, phone, company, service, budget, message } = body
 
     // Валидация
-    if (!name || !email || !message) {
+    if (!name || !phone || !message) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
       parent: { database_id: databaseId },
       properties: {
         Name: { title: [{ text: { content: name } }] },
-        Email: { email: email },
+        Phone: { phone_number: phone },
         Company: { rich_text: [{ text: { content: company || '' } }] },
         Service: { rich_text: [{ text: { content: service || '' } }] },
         Budget: { rich_text: [{ text: { content: budget || '' } }] },

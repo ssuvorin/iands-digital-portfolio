@@ -41,7 +41,7 @@ const services = [
 export default function ContactClient() {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
+    phone: '',
     company: '',
     service: '',
     budget: '',
@@ -69,7 +69,7 @@ export default function ContactClient() {
         // Reset form
         setFormData({
           name: '',
-          email: '',
+          phone: '',
           company: '',
           service: '',
           budget: '',
@@ -151,18 +151,18 @@ export default function ContactClient() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-white/80 mb-2 text-sm font-medium">
-                      Email Address *
+                    <label htmlFor="phone" className="block text-white/80 mb-2 text-sm font-medium">
+                      Phone Number *
                     </label>
                     <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:border-accent focus:outline-none transition-colors duration-300"
-                      placeholder="your@email.com"
+                      placeholder="+971 50 123 4567"
                     />
                   </div>
                 </div>
